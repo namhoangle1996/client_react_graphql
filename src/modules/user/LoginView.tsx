@@ -4,6 +4,7 @@ import {gql } from 'apollo-boost';
 import {RouteComponentProps} from "react-router-dom";
 import {LoginMutaionVariables,LoginMutaion} from  "../../schemaTypes";
 import {RedButton} from "../../ui/RedButton";
+// import { any } from 'prop-types';
 
 const loginMutation = gql`
     mutation LoginMutaion($email:String!,$password:String!){
@@ -35,25 +36,30 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
                 <div style={{display: "flex", flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
                     <div>Email:<input type="text" name="email" value={email} onChange={this.handleChange} /></div>
                     <div>Password:<input type="text" name="password" value={password} onChange={this.handleChange} /></div>
-                    <div>
+                    {/* <div> */}
                         <RedButton onClick={ async()=>{
                             console.log(this.state);
+                            // console.log(password);
+                            // console.log(email);
                             const response: any = await mutate({
                                 variables: this.state
                             });
                             // console.log("response::::",typeof(response));
                             console.log(response.data.login);
-                            if (response.data.login == null) {
+                            if (!password || !password) {
+                                alert("Vui lòng nhập đủ thông tin các trường và đăng nhập lại");
+                            }
+                            else if (response.data.login == null) {
                                 alert("Sai tài khoản hoặc mật khẩu ! Vui lòng thử  lại");
                             }
                             else {
-                                alert("Đăng nhập thành công");
+                                // alert("Đăng nhập thành công");
                                 this.props.history.push("/me");
                             }
                         }}>
                         Login
                         </RedButton>
-                    </div>
+                    {/* </div> */}
                 </div>
                 )}
             </Mutation>

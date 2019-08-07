@@ -28,7 +28,14 @@
   src: url('https://fonts.googleapis.com/css?family=Varela&display=swap');
 
 }
-
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+.container {
+  max-width: 1180px;
+  margin: 0 auto; 
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

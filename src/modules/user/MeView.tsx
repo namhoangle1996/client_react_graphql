@@ -3,6 +3,8 @@ import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost';
 import {MeQuery} from '../../schemaTypes';
 import { Link } from 'react-router-dom';
+import {RedButton} from "../../ui/RedButton";
+
 
 const meQuery = gql`
     query MeQuery {
@@ -26,8 +28,8 @@ export default class MeView extends React.PureComponent {
             if (!data.me) {
                 return (
                     <>
-                    <p>Phiên đăng nhập đã hết hạn. Xin vui lòng đăng nhập lại ! </p>
-                    <div><Link to="/login">Login now</Link> </div>
+                        <p>Phiên đăng nhập đã hết hạn. Xin vui lòng đăng nhập lại ! </p>
+                        <Link to="/login"><RedButton>Login now</RedButton></Link> 
                     </>
                 )
             }

@@ -10,11 +10,14 @@ export default class Routes extends React.PureComponent {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/login" component={LoginView} />
-                    <Route path="/register" component={RegisterView} />
-                    <Route path="/me" component={MeView} />
-                    <Route path="/subscription" component={SubcribeUser} />
-
+                    <>
+                    <div className="container">
+                        <Route path="/login" component={LoginView} />
+                        <Route path="/register" component={RegisterView} />
+                        <Route path="/me" component={MeView} />
+                        <Route path="/subscription" component={SubcribeUser} />
+                    </div>
+                    </>
                 </Switch>
             </BrowserRouter>
         )

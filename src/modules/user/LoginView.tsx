@@ -38,12 +38,18 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
                     <div>
                         <RedButton onClick={ async()=>{
                             console.log(this.state);
-                            await mutate({
+                            const response: any = await mutate({
                                 variables: this.state
                             });
-                            // console.log("response::::",response);
-                            // console.log(this.props)
-                            this.props.history.push("/subscription");
+                            // console.log("response::::",typeof(response));
+                            console.log(response.data.login);
+                            if (response.data.login == null) {
+                                alert("Sai tài khoản hoặc mật khẩu ! Vui lòng thử  lại");
+                            }
+                            else {
+                                alert("Đăng nhập thành công");
+                                this.props.history.push("/me");
+                            }
                         }}>
                         Login
                         </RedButton>

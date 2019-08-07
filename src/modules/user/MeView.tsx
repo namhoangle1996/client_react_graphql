@@ -26,7 +26,7 @@ export default class MeView extends React.PureComponent {
             if (!data.me) {
                 return (
                     <>
-                    <p>No user receive.</p>
+                    <p>Phiên đăng nhập đã hết hạn. Xin vui lòng đăng nhập lại ! </p>
                     <div><Link to="/login">Login now</Link> </div>
                     </>
                 )

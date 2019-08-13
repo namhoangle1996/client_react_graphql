@@ -31,6 +31,7 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
     render() {
         const {password,email} = this.state;
         return (
+            <>
             <Mutation<LoginMutaion,LoginMutaionVariables>mutation ={loginMutation}>
                 {mutate =>(
                 <div style={{display: "flex", flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
@@ -63,6 +64,7 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
                 </div>
                 )}
             </Mutation>
+            </>
         )
     }
 }

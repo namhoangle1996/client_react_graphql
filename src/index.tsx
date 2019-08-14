@@ -18,7 +18,6 @@ const client = new ApolloClient({
 
 const GlobalStyle = createGlobalStyle`
   body {
-   background: rgb(255, 254, 252);
    font-family: 'Varela', sans-serif;
   }
 `

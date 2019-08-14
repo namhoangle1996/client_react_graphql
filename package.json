@@ -6,6 +6,7 @@
     "@types/styled-components": "^4.1.8",
     "apollo-boost": "^0.4.3",
     "dotenv": "^8.0.0",
+    "flash": "^1.1.0",
     "graphql": "^14.4.2",
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",

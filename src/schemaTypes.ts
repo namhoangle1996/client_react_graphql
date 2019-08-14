@@ -66,11 +66,29 @@ export interface MeQuery {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: MeQuery1
+// ====================================================
+
+export interface MeQuery1_get_all_user {
+  __typename: "AllUser";
+  id: string | null;
+  email: string | null;
+}
+
+export interface MeQuery1 {
+  get_all_user: (MeQuery1_get_all_user | null)[] | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: RegisterMutaion
 // ====================================================
 
 export interface RegisterMutaion {
-  register: boolean;
+  register: boolean | null;
 }
 
 export interface RegisterMutaionVariables {

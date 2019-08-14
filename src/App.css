@@ -1,7 +1,13 @@
 .App {
   text-align: center;
 }
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+body {
+  background: linear-gradient(90deg, rgb(154, 187, 195) 0%, rgb(172, 195, 202) 11%, rgb(171, 193, 199) 100%);
+  font-family: 'Nunito', sans-serif;
 
+
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -13,7 +19,10 @@
   padding: 20px;
   color: white;
 }
-
+.has-error {
+   color: rgb(236, 53, 53); 
+   transition: all ease-in-out 0.3s ;
+}
 .App-title {
   font-size: 1.5em;
 }
@@ -35,6 +44,41 @@ a {
 .container {
   max-width: 1180px;
   margin: 0 auto; 
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  height: 632px;
+}
+.box {
+  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: #117296; */
+  background: #100e1b url('../src/ui/images/1.jpg')  no-repeat center;
+  background-size: cover;
+  box-shadow: -1px 8px 10px 2px #4d5e64;
+  color:white;margin: 0 auto;
+  margin-top: 100px;
+  background-blend-mode: color-dodge;
+  height: 350px;
+  background-color: rgba(236, 235, 233, 0.13);
+}
+.color-gray {
+  color: dimgray;
+}
+input {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    /* padding: 20px; */
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    border: 0;
+    margin: 10px 0px 10px;
+    box-shadow: 0px 5px 8px 1px #8080805c;
+    border-radius: 2px;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

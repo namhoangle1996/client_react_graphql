@@ -4181,6 +4181,11 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
+flash@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/flash/-/flash-1.1.0.tgz#8ab2b29ed3b68a5cfb1a89bf98e7f69d7f1a020a"
+  integrity sha1-irKyntO2ilz7Gom/mOf2nX8aAgo=
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"

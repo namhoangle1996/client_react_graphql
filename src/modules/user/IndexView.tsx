@@ -11,7 +11,6 @@ export default class IndexView extends React.PureComponent {
     render() {
         return (
             <>
-                <div className="container">
                     <section className="navbar">
                           <Link to="/login">
                                 <div>Login</div>
@@ -23,7 +22,6 @@ export default class IndexView extends React.PureComponent {
                                 <div>Me</div>
                            </Link>
                     </section>
-                </div>
             
             </>
         )   

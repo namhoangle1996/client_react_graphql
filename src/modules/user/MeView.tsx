@@ -5,6 +5,8 @@ import {MeQuery} from '../../schemaTypes';
 import {MeQuery1} from '../../schemaTypes';
 import { Link } from 'react-router-dom';
 import {RedButton} from "../../ui/RedButton";
+import { FaUserEdit ,FaTrash } from 'react-icons/fa';
+
 
 
 const meQuery = gql`
@@ -20,16 +22,18 @@ const meQuery1 = gql`
         get_all_user {
             id
             email
+            stripeId
+            password
         }
     }
 `;
 
 
 export default class MeView extends React.PureComponent {
-    componentDidUpdate() {
-        console.log("changed");
-        window.location.reload();
+    state = {
+        data : false ,
     }
+
     render() {
         return (
             <>
@@ -39,13 +43,22 @@ export default class MeView extends React.PureComponent {
                     return null
                 }
                 if (!data) {
-                    return <div>data is undefined</div>
+                    return (
+                        <>
+                        <div>Vui lòng đăng nhập !</div>
+                        <Link to="/login">
+                            <RedButton>
+                                Login
+                            </RedButton>
+                        </Link>
+                        </>
+                        )
                 }
                 if (!data.me) {
                     return (
                         <>
-                            <p>Phiên đăng nhập đã hết hạn. Xin vui lòng đăng nhập lại ! </p>
-                            <Link to="/login"><RedButton>Login now</RedButton></Link> 
+                            {/* <p>Phiên đăng nhập đã hết hạn. Xin vui lòng đăng nhập lại ! </p>
+                            <Link to="/login"><RedButton>Login now</RedButton></Link>  */}
                         </>
                     )
                 }
@@ -58,13 +71,37 @@ export default class MeView extends React.PureComponent {
                     return null
                 }
                 if (!data) {
-                    return <div>data is undefined</div>
+                    return (
+                        <>
+                        </>
+                    )
                 }
                 if (!data.get_all_user) {
                     return null ;
                 }
-                return (<><h4>Danh sách tài khoản</h4>
-                    {data.get_all_user.map((val: any,index: any) => <p key={val.id}>{val.email}</p> )} </>)
+                return (<>
+                <div className="container">
+                    <h4>Danh sách tài khoản</h4>
+                        {data.get_all_user.map((val: any,index: any) => 
+                            (<div key={val.id} className="grid-2">
+                                <div>
+                                    <p>User: {val.email}
+                                    </p>
+                                    <p>
+                                        Password:  {val.password}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <FaUserEdit size={32} style={{color: '#1fa2ff'}} />  
+                                    <FaTrash size={32} style={{color: '#ff1f1f'}} />      
+                                </div>
+                                {/* <FaUserEdit size={32} style={{color: '#75f07a'}} /> */}
+
+                            </div>) 
+                    )}
+                </div> 
+                </>)
             }}
             </Query>
  

@@ -24,8 +24,8 @@ export const RedButton  = styled("button")`
     ${props =>
         props.disabled &&
         css`
-          background: #1c1a1a0f ;
-          color: #b3b2b2;
+          background: #9E9E9E ;
+          color: #7e746c;
           box-shadow: none;
           cursor: not-allowed;
         `};

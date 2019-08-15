@@ -28,12 +28,7 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
     };
     handleChange = (e: any) => {
       const {name, value}= e.target;
-      console.log(name);
-      console.log(this.state.redirect);
-      if (this.state.redirect) {
-            this.renderRedirect();
-      };
-      console.log(value);
+    //   console.log(name);
       this.setState({[name]:value},
         () => { this.validateField(name, value) })
     };
@@ -64,22 +59,22 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
     validateForm() {
         this.setState({formValid: this.state.emailValid && this.state.passwordValid});
     }
-    componentDidUpdate() { 
-        this.renderRedirect()
-    }
+    componentDidUpdate(_ : any,prevState: any) {
+        console.log(prevState.redirect);
 
-    setRedirect = () => {
-        this.setState({
-          redirect: true
-        })
-      }
-      renderRedirect = () : any => {
-        if (this.state.redirect) {
-          return <Redirect to='/me' />
+        if (this.state.redirect !== prevState.redirect) {
+        //   this.props.history.push('/me');
+            // this.context.router.history.push(`/me`) ;
+            console.log("success login");
+            
         }
     }
+
     render() {
         const {password,email} = this.state;
+        if (this.state.redirect) {
+            return <Redirect to='/me' />;
+        }
         return (
             <>
             <Mutation<LoginMutaion,LoginMutaionVariables>mutation ={loginMutation}>
@@ -103,7 +98,7 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
                                 variables: this.state
                             });
                             // console.log("response::::",typeof(response));
-                            console.log(response.data.login);
+                            console.log("response data from login ::::",response.data.login);
                             if (!password || !email) {
                                 alert("Vui lòng nhập đủ thông tin các trường và đăng nhập lại");
                             }
@@ -112,7 +107,7 @@ export default class LoginView extends React.PureComponent<RouteComponentProps<{
                             }
                             else {
                                 this.setState({redirect: true});
-                                this.props.history.push('/me');
+                                // this.props.history.push('/me');
                             }
                         }}>
                         Login

@@ -73,6 +73,8 @@ export interface MeQuery1_get_all_user {
   __typename: "AllUser";
   id: string | null;
   email: string | null;
+  stripeId: string | null;
+  password: string | null;
 }
 
 export interface MeQuery1 {

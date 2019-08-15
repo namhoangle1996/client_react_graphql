@@ -69,7 +69,8 @@ export default class RegisterView extends React.PureComponent<RouteComponentProp
         return (
             <Mutation<RegisterMutaion,RegisterMutaionVariables>mutation ={registerMutation}>
                 {mutate =>(
-                <div className="box" style={{display: "flex", flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+                <div className="box" style={{display: "flex", flexDirection:"column",justifyContent:"center"}}>
+                    <h1>Register</h1>
                     <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>Email:
                         <input type="email" name="email" value={email} autoComplete="false" onChange={this.handleChange} />
                     </div>

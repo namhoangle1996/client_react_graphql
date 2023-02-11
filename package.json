@@ -35,7 +35,7 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-router-dom": "^4.3.4",
     "@types/stripe": "^6.31.8",
-    "apollo": "^2.16.1",
+    "apollo": "^2.34.0",
     "typescript": "^3.5.3"
   }
 }
